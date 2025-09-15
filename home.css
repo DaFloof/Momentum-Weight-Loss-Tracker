@@ -1,0 +1,194 @@
+/*Importing Google Fonts*/
+
+    /*Funnel Sans*/
+    @import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+    /*Setting up Vairables and Default Style*/
+
+    :root{
+        --main-font: 'Funnel Sans';
+        --box-shadow: 0px 5px 10px 1px hsla(0, 0%, 0%, 0.4);
+        --default-green: #5abf7d;
+        --shaded-green: #3e965d;
+}
+
+/* Setting up Default Styles */
+body{
+    margin:0px;
+}
+
+/*Loader*/
+
+.loader-wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.loader-wrapper img{
+    height: 20vw;
+    width: 20vw;
+    border-radius: 100%;
+}
+
+.loader-ring{
+    height: 20vw;
+    width: 20vw;
+    border-radius: 100%;
+    padding: 30px;
+    position: relative;
+    background: white;
+}
+
+@property --angle {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+
+.loader-ring::after{
+    --angle: 0deg;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    background-image: conic-gradient(from var(--angle), grey 35%, var(--default-green));
+    border-radius: 100%;
+    translate: -50% -50%;
+    padding: 30px;
+    z-index: -1;
+    animation: 3s spin linear infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes spin {
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
+    
+}
+
+/*Nav Styles*/
+
+.nav-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--box-shadow);
+    height:8vw;
+}
+
+.nav-items{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 6vw;
+}
+
+.nav-items a{
+    font-family: var(--main-font);
+    margin-left: 14vw;
+    text-decoration: none;
+    color: black;
+}
+
+.profile-icon{
+    margin-left: 15vw;
+    cursor: pointer;
+}
+
+    /*Hover Animations for Nav Bar*/
+
+.profile-icon:hover{
+    filter: invert(64%) sepia(32%) saturate(535%) hue-rotate(93deg) brightness(94%) contrast(92%);
+}
+
+.home-link:hover, .food-link:hover, .workouts-link:hover, .progress-link:hover{
+    color: var(--default-green);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.home-link:active, .food-link:active, .workouts-link:active, .progress-link:active{
+    color: var(--shaded-green);
+    font-weight: 700;
+}
+
+/*Main Body Styles*/
+
+/*Progress Section Styles*/
+
+.progress-section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20vh;
+}
+
+.gradient-flow-text{
+    font-family: var(--main-font);
+    width: 15vw;
+    height: 15vw;
+}
+
+.progress-ring{
+    height: 15vw;
+    width: 15vw;
+    border: solid var(--default-green) 20px;
+    border-radius: 100%;
+    padding: 30px;
+}
+
+/*Food Input Section*/
+
+.food-input-section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10vh;
+    margin-bottom: 5vw;
+}
+
+.food-input{
+    width: 43vw;
+    height: 5vw;
+    border-radius: 35px;
+    padding-left: 3vw;
+    font-family: var(--main-font);
+    font-size: 2vh;
+}
+
+.food-input::placeholder{
+    font-family: var(--main-font);
+    font-size: 2vh;
+    color: grey;
+}
+
+.food-add-button{
+    height: 9.5vh;
+    width: 11.5vh;
+    border-radius: 35px;
+    margin-left: -11.5vh;
+    background-color: var(--default-green);
+    border: solid black 1px;
+    cursor: pointer;
+    font-family: var(--main-font);
+    font-weight: 600;
+    font-size: 1.5vw;
+}
+
+.food-add-button:hover{
+    background-color: var(--shaded-green);
+}
