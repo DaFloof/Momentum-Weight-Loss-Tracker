@@ -1,1 +1,21 @@
+<form id="loginForm">
+    <input type="text" id="usernameLogin" placeholder="Username" required>
+    <input type="password" id="passwordLogin" placeholder="Password" required>
+    <button type="submit">Login</button>
+</form>
 
+<script>
+document.getElementById('loginForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const username = document.getElementById('usernameLogin').value;
+    const password = document.getElementById('passwordLogin').value;
+    const user = JSON.parse(localStorage.getItem('momentumUser'));
+    
+    if(user && user.username === username && user.password === password){
+        alert('Login successful!');
+        window.location.href = 'home.html'; // Redirect to app
+    } else {
+        alert('Incorrect username or password');
+    }
+});
+</script>
